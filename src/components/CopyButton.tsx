@@ -1,28 +1,24 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { useState } from 'react';
+import { Copy, Check } from 'lucide-react';
 
-export function CopyButton({ text }: { text: string }) {
+export default function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy:", err);
-    }
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <button
       onClick={handleCopy}
-      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+      className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all ${
         copied 
-          ? "bg-green-500 text-white" 
-          : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-100 active:scale-95"
+        ? 'bg-green-100 text-green-700 ring-2 ring-green-500' 
+        : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-200'
       }`}
     >
       {copied ? (
