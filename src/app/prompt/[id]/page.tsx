@@ -30,7 +30,7 @@ export default async function PromptDetailPage({ params }: { params: { id: strin
                 <Calendar size={12} /> {new Date(prompt.created_at).toLocaleDateString()}
               </span>
               <span className="flex items-center gap-1 text-xs font-bold bg-indigo-500/50 px-3 py-1 rounded-full backdrop-blur-sm">
-                <User size={12} /> {prompt.author}
+                <User size={12} /> {prompt.author_name}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tight">{prompt.title}</h1>
